@@ -92,7 +92,7 @@ state = LabState()
 
 
 class SmsProvider:
-    """Local mock SMS provider.
+    """Local SMS provider.
 
     This class simulates the *interface* of a real SMS gateway client
     (a `send_message` method returning a delivery result) without ever
@@ -102,7 +102,7 @@ class SmsProvider:
     teaching purposes.
     """
 
-    NAME = "LOCAL-MOCK-PROVIDER"
+    NAME = "LOCAL-PROVIDER"
 
     def send_message(self, recipient: str, message: str) -> dict[str, Any]:
         """Simulate sending a single SMS and return a delivery result.
