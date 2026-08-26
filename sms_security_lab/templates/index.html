@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>SMS Security Lab</title>
+<link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}" />
+</head>
+<body>
+
+<header class="topbar">
+  <div class="topbar-inner">
+    <div class="brand">
+      <h1>SMS Security Lab</h1>
+      <p class="subtitle">SMS Environment &amp; Delivery Monitor</p>
+    </div>
+    <div class="badges">
+      <span class="badge badge-simulation">LOCAL SIMULATION</span>
+      <span class="badge badge-edu">Education Purpose Only</span>
+    </div>
+  </div>
+</header>
+
+<main class="layout">
+
+  <!-- Stats -->
+  <section class="stats-grid">
+    <div class="card stat-card">
+      <span class="stat-label">Test Attempts</span>
+      <span class="stat-value" id="stat-attempts">0</span>
+    </div>
+    <div class="card stat-card">
+      <span class="stat-label">Delivered</span>
+      <span class="stat-value stat-good" id="stat-delivered">0</span>
+    </div>
+    <div class="card stat-card">
+      <span class="stat-label">Failed</span>
+      <span class="stat-value stat-bad" id="stat-failed">0</span>
+    </div>
+    <div class="card stat-card">
+      <span class="stat-label">Inbox Messages</span>
+      <span class="stat-value" id="stat-messages">0</span>
+    </div>
+  </section>
+
+  <div class="two-col">
+
+    <!-- SMS Mode panel -->
+    <section class="card panel">
+      <h2>SMS Mode</h2>
+      <p class="panel-desc">Send a single simulated message. Nothing here leaves this computer.</p>
+
+      <label for="recipient">Recipient</label>
+      <input id="recipient" type="text" placeholder="e.g. 8801700000000" maxlength="20" />
+
+      <label for="message">Message</label>
+      <textarea id="message" maxlength="320" rows="4" placeholder="Type a test message..."></textarea>
+      <div class="char-counter"><span id="char-count">0</span> / 320</div>
+
+      <button id="send-btn" class="btn btn-primary">Send SMS</button>
+
+      <div id="status-line" class="status-line"></div>
+      <div id="error-line" class="error-line"></div>
+
+      <button id="clear-btn" class="btn btn-secondary">Clear Lab Data</button>
+    </section>
+
+    <!-- Inbox -->
+    <section class="card panel">
+      <h2>Inbox</h2>
+      <div id="inbox-list" class="inbox-list">
+        <p class="empty-state">No messages yet. Send a test SMS to populate the inbox.</p>
+      </div>
+    </section>
+
+  </div>
+
+  <!-- Event log -->
+  <section class="card panel">
+    <h2>Event Log</h2>
+    <div class="table-wrap">
+      <table id="event-table">
+        <thead>
+          <tr>
+            <th>Timestamp</th>
+            <th>Mode</th>
+            <th>Recipient</th>
+            <th>Status</th>
+            <th>Message ID</th>
+            <th>Provider</th>
+          </tr>
+        </thead>
+        <tbody id="event-tbody">
+          <tr><td colspan="6" class="empty-state">No events yet.</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+</main>
+
+<footer class="footer">
+  <p>Made with love &#10084;&#65039; byIshmam · All rights reserved &copy; 2026</p>
+</footer>
+
+<script src="{{ url_for('static', filename='js/app.js') }}"></script>
+</body>
+</html>
