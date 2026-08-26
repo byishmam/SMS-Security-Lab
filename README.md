@@ -181,3 +181,9 @@ that a production system would also need.
   the port in the `app.run(...)` call at the bottom of `app.py`.
 - **Page loads but styling looks broken**: make sure you're running the
   app from the project root so Flask can find `static/` and `templates/`.
+
+
+
+
+
+  ## Demo Photo can be seen here: Demo.png
